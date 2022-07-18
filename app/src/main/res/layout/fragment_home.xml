@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_background"
+        tools:context=".presentation.ui.home.HomeFragment">
+
+        <ImageView
+            android:id="@+id/bannerIV"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            android:src="@drawable/placeholder_picture_of_day" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlackLight"
+            android:padding="10dp"
+            android:text="@string/image_of_the_day"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/bannerIV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemsRV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerIV" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/itemsRV"
+            app:layout_constraintEnd_toEndOf="@id/itemsRV"
+            app:layout_constraintStart_toStartOf="@id/itemsRV"
+            app:layout_constraintTop_toTopOf="@id/itemsRV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

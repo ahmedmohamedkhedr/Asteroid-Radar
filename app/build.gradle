@@ -1,0 +1,107 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.khedr.project2"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_URL", '"https://api.nasa.gov/neo/rest/v1/"')
+            buildConfigField("String", "API_KEY", '"EnJuTqGCbVf4SeOogGQl8s9vlROsVFf1dxEtlojh"')
+        }
+
+        debug {
+            buildConfigField("String", "BASE_URL", '"https://api.nasa.gov/"')
+            buildConfigField("String", "API_KEY", '"EnJuTqGCbVf4SeOogGQl8s9vlROsVFf1dxEtlojh"')
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "androidx.core:core-ktx:$androidx_core_ktx"
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
+    implementation "com.google.android.material:material:$android_material"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout"
+
+    // ViewModel-liveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    // lifecycle
+    implementation "androidx.activity:activity-ktx:$activity_ktx"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //moshi
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+
+    // Hilt
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_core"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
+    implementation "com.squareup.retrofit2:converter-scalars:2.1.0"
+
+    //Gson
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //work manager
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    //hilt for worker
+    implementation("androidx.hilt:hilt-work:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
+
+    //room
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+
+    //picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
+
+}
