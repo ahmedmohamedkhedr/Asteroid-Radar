@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.fudex.project2.domain.data_interfaces.RemoteRepository
 import com.fudex.project2.domain.models.DataModel
 import com.fudex.project2.domain.use_cases.GetDataUseCase
 import com.fudex.project2.domain.use_cases.GetImageOfDayUseCase
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    private val remoteRepository: RemoteRepository,
     private val getDataUseCase: GetDataUseCase,
     private val getImageOfDayUseCase: GetImageOfDayUseCase
 ) :

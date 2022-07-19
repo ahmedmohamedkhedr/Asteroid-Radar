@@ -6,7 +6,6 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.fudex.project2.domain.data_interfaces.DbRepository
 import com.fudex.project2.domain.data_interfaces.RemoteRepository
-import com.fudex.project2.utils.Utils
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.Dispatchers
@@ -25,12 +24,11 @@ class AppWorker @AssistedInject constructor(
 
     override suspend fun doWork(): Result {
         return try {
+            dbRepository.clearAll()
             val dataFromServer = withContext(Dispatchers.IO) { remoteRepository.getData() }
-            dbRepository.swapData(
-                dataFromServer.nearEarthObjects?.get(Utils.getCurrentDate())?.map {
-                    it.toEntityModel()
-                }?.toMutableList() ?: mutableListOf()
-            )
+            dataFromServer.nearEarthObjects?.values?.forEach { list ->
+                dbRepository.addData(list.map { it.toEntityModel() }.toMutableList())
+            }
             Result.success()
         } catch (e: Exception) {
             print(e.message)

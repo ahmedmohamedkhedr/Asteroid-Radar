@@ -38,7 +38,6 @@ class DetailsFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() =
-            DetailsFragment()
+        fun newInstance() = DetailsFragment()
     }
 }

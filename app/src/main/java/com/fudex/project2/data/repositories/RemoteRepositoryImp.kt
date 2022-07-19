@@ -11,8 +11,9 @@ import com.fudex.project2.utils.Utils
 class RemoteRepositoryImp(private val apiService: ApiService) : RemoteRepository {
 
     override suspend fun getData(): ApiResponse {
+        val endDate = Utils.getEndDate()
         val response =
-            apiService.getData(Utils.getCurrentDate(), Utils.getCurrentDate(), BuildConfig.API_KEY)
+            apiService.getData(Utils.getStartDate(), endDate, BuildConfig.API_KEY)
         if (response.isSuccessful && response.body() != null) {
             return response.body()!!
         } else {

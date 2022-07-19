@@ -11,4 +11,4 @@ data class DataModel(
     val isPotentiallyHazardousAsteroid: Boolean,
     val kilometersPerSecond: String,
     val astronomical: String
-):Serializable
+) : Serializable
