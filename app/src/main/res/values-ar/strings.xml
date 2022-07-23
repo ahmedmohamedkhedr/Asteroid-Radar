@@ -12,4 +12,8 @@
     <string name="km_s_unit_format">%f كم/س</string>
     <string name="astronomica_unit_explanation">الوحدة الفلكية (au) هي وحدة طول ، تقريبًا المسافة من الأرض إلى الشمس وتساوي حوالي 150 مليون كيلومتر (93 مليون ميل)</string>
     <string name="accept">قبول</string>
+    <string name="status_image_view_description">StatusImageViewDescription</string>
+    <string name="help_button_description">HelpButtonDescription</string>
+    <string name="image_of_the_day_description">Image of the day description</string>
+    <string name="emoji_image_view_description">Emoji Image View Description</string>
 </resources>

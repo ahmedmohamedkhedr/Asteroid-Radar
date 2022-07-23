@@ -1,20 +1,12 @@
 package com.fudex.project2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import androidx.lifecycle.lifecycleScope
+import androidx.appcompat.app.AppCompatActivity
 import androidx.work.*
 import com.fudex.project2.databinding.ActivityMainBinding
-import com.fudex.project2.domain.data_interfaces.DbRepository
-import com.fudex.project2.domain.data_interfaces.RemoteRepository
-import com.fudex.project2.domain.use_cases.GetDataUseCase
 import com.fudex.project2.presentation.services.AppWorker
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
